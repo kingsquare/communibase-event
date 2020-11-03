@@ -119,7 +119,7 @@ class Event
      * @throws FullyBookedException
      * @throws ActionNotAllowedException
      */
-    public function registerParticipant(ParticipantInterface $participant): void
+    public function registerParticipant(ParticipantInterface $participant, CommunibaseId $debtorId = null): void
     {
         $this->guardAgainstAlreadyStarted();
         $this->guardAgainstEventNotReady();
@@ -131,6 +131,9 @@ class Event
         foreach ($participantsData as &$participantData) {
             if ($participantData['personId'] === $participant->getId()->toString()) {
                 $participantData['status'] = self::PARTICIPANT_STATUS_REGISTERED;
+                if ($debtorId !== null) {
+                    $participantData['debtorId'] = $debtorId->toString();
+                }
                 $this->setParticipantsData($participantsData);
                 return;
             }
@@ -139,6 +142,7 @@ class Event
         $participantsData[] = [
             'personId' => $participant->getId()->toString(),
             'status' => self::PARTICIPANT_STATUS_REGISTERED,
+            'debtorId' => $debtorId === null ? null : $debtorId->toString()
         ];
         $this->setParticipantsData($participantsData);
     }
