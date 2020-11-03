@@ -1,0 +1,36 @@
+{
+    "name": "kingsquare/communibase-event",
+    "description": "Communibase Event",
+    "keywords": [
+        "communibase",
+        "event",
+        "event registration",
+        "participants"
+    ],
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mishavantol",
+            "email": "mishavantol@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.3",
+        "kingsquare/communibase-databag": "^2.0",
+        "kingsquare/communibase-entity": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Communibase\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Communibase\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.4"
+    }
+}
