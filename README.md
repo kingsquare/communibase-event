@@ -1,5 +1,7 @@
 # Communibase Event
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kingsquare/communibase-event/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/kingsquare/communibase-event/?branch=main)
+
 Basic register/unregister functionality for event participants.
 
 Contains:
