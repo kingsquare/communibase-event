@@ -29,20 +29,33 @@ class Event
      */
     protected $dataBag;
 
+    /**
+     * @var string
+     */
     protected $entityType = 'event';
 
+    /**
+     * @var string
+     */
     protected $timezone = 'Europe/Amsterdam';
 
+    /**
+     * @var string[]
+     */
     protected $registeredStatuses = [
         self::PARTICIPANT_STATUS_REGISTERED
     ];
 
-    protected function __construct(array $eventData)
+    /**
+     * @param array<string,mixed> $eventData
+     */
+    final private function __construct(array $eventData)
     {
         $this->dataBag = DataBag::fromEntityData($this->entityType, $eventData);
     }
 
     /**
+     * @param array<string,mixed> $eventData
      * @return static
      */
     public static function factory(array $eventData)
@@ -178,7 +191,7 @@ class Event
     }
 
     /**
-     * @return array<string,mixed>
+     * @return array<array<string,mixed>>
      */
     private function getParticipantsData(): array
     {
@@ -186,7 +199,7 @@ class Event
     }
 
     /**
-     * @param array<string,mixed> $participantsData
+     * @param array<string,array<string,mixed>> $participantsData
      */
     private function setParticipantsData(array $participantsData): void
     {
