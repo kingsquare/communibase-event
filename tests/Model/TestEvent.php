@@ -14,11 +14,11 @@ class TestEvent extends Event
     protected $entityType = 'myEvent';
 
     public static function create(
-        $status = Event::STATUS_READY,
-        $maxParticipants = null,
-        $startDate = null,
-        $registrationStartDate = null,
-        $registrationEndDate = null
+        ?string $status = Event::STATUS_READY,
+        int $maxParticipants = null,
+        string $startDate = null,
+        string $registrationStartDate = null,
+        string $registrationEndDate = null
     ): TestEvent {
         return self::factory(
             [
@@ -32,6 +32,9 @@ class TestEvent extends Event
         );
     }
 
+    /**
+     * @return array<array>
+     */
     public function getRawParticipantsData(): array
     {
         return (array)$this->dataBag->get('myEvent.participants', []);

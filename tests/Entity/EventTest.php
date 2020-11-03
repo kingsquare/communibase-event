@@ -38,6 +38,9 @@ class EventTest extends TestCase
         self::assertTrue($event->isReady());
     }
 
+    /**
+     * @return array<array<string>>
+     */
     public function nonReadyStatuses(): array
     {
         return [
